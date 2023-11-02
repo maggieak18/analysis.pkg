@@ -1,0 +1,10 @@
+column descriptions
+
+"experimental_group" the treatment type administered
+"frog_number" the number an individual frog was assigned
+"strike_at_fish" attack at a prey object
+"strike_at_nothing" attack where no prey is present
+"sweep" swimming movement back and forth; a form of searching
+"move_towards_prey" swimming closer to prey
+"move_away_from_prey" swimming farther from prey
+"frenzy" random chaotic movement

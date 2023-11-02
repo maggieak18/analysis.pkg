@@ -1,0 +1,22 @@
+Package: keller.pkg
+Title: An R package for processing feeding behavioral data of Xenopus laevis
+Version: 0.1
+Authors@R: c(
+  person(given = "Maggie",
+          family = "Keller",
+          role = c("cre", "aut"),
+          email = "magdalene.keller@selu.edu")
+          )
+Description: A package to analyze and process presence absence type behavioral data. Specifically, ethogram based behavioral data of Xenopus laevis, whose sensory system inputs have been manipulated.
+License: MIT + file LICENSE
+Depends:
+  R (>= 2.10)
+Imports:
+  tidyverse, broom
+RoxygenNote: 7.1.1
+Suggests:
+  knitr,
+  rmarkdown
+VignetteBuilder: knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)

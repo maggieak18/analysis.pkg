@@ -1,0 +1,12 @@
+---
+title: "BehavioralAnalysisTutorial"
+author: "Maggie Keller"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This R package allows for analysis and visualization of presence absence behavioral data. Specifically, it is structed to analyze how many times behaviors occurred in different experimental groups.

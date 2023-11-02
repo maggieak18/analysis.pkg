@@ -1,0 +1,1 @@
+This function will calculate standard error for the calculated mean.
