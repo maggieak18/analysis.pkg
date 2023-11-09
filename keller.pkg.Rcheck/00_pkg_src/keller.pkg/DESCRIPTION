@@ -18,6 +18,6 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 NeedsCompilation: no
-Packaged: 2023-10-24 19:35:02 UTC; r2159920
+Packaged: 2023-11-09 19:31:28 UTC; r2159920
 Author: Maggie Keller [cre, aut]
 Maintainer: Maggie Keller <magdalene.keller@selu.edu>
