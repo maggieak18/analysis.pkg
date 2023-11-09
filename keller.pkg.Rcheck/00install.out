@@ -1,9 +1,14 @@
 * installing *source* package ‘keller.pkg’ ...
 ** using staged installation
 ** R
-Error in parse(...) : 
-  /cloud/project/keller.pkg/keller.pkg.Rcheck/00_pkg_src/keller.pkg/R/ANOVA.R:1:6: unexpected 'function'
-1: This function
-         ^
-ERROR: unable to collate and parse R files for package ‘keller.pkg’
-* removing ‘/cloud/project/keller.pkg/keller.pkg.Rcheck/keller.pkg’
+** data
+** byte-compile and prepare package for lazy loading
+** help
+No man pages found in package  ‘keller.pkg’ 
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (keller.pkg)

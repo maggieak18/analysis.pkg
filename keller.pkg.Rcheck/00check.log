@@ -6,6 +6,7 @@
     GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
 * running under: Ubuntu 20.04.6 LTS
 * using session charset: UTF-8
+* using options ‘--no-manual --as-cran’
 * checking for file ‘keller.pkg/DESCRIPTION’ ... OK
 * this is package ‘keller.pkg’ version ‘0.1’
 * package encoding: UTF-8
@@ -17,8 +18,56 @@
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking for sufficient/correct file permissions ... OK
-* checking whether package ‘keller.pkg’ can be installed ... ERROR
-Installation failed.
-See ‘/cloud/project/keller.pkg/keller.pkg.Rcheck/00install.out’ for details.
+* checking serialization versions ... OK
+* checking whether package ‘keller.pkg’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... NOTE
+Non-standard files/directories found at top level:
+  ‘README.html’ ‘docs’
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Subdirectory ‘data’ contains no data sets.
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... NOTE
+Namespaces in Imports field not imported from:
+  ‘broom’ ‘tidyverse’
+  All declared Imports should be used.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+non_numeric: no visible global function definition for ‘select_if’
+separate_cols: no visible global function definition for
+  ‘separate_wider_delim’
+Undefined global functions or variables:
+  select_if separate_wider_delim
+* checking for missing documentation entries ... OK
+* checking contents of ‘data’ directory ... WARNING
+Files not of a type allowed in a ‘data’ directory:
+  ‘SICB_Analysis.xlsx’ ‘columns’
+Please use e.g. ‘inst/extdata’ for non-R data files
+
+* checking data for non-ASCII characters ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking files in ‘vignettes’ ... WARNING
+Files in the 'vignettes' directory but no files in 'inst/doc':
+  ‘BehavioralAnalysisTutorial.Rmd’
+Files named as vignettes but with no recognized vignette engine:
+   ‘vignettes/BehavioralAnalysisTutorial.Rmd’
+(Is a VignetteBuilder field missing?)
+* checking examples ... NONE
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR
+Status: 3 WARNINGs, 3 NOTEs
