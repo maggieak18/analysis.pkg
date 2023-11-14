@@ -13,8 +13,12 @@
 
 
 separate_cols <- function(data, column, newname1, newname2){
+  if(is.data.frame(data) == TRUE){
   final <- separate_wider_delim(data = data, cols = column, delim = " ", names = c(newname1, newname2))
     return(final)
+  }else{
+    print("Data must be a data frame")
+  }
 }
 
 

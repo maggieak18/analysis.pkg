@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Maggie
 Keller</h4>
             
-            <h4 data-toc-skip class="date">2023-11-02</h4>
+            <h4 data-toc-skip class="date">2023-11-14</h4>
       
       
       <div class="hidden name"><code>BehavioralAnalysisTutorial.Rmd</code></div>
@@ -81,9 +81,18 @@ Keller</h4>
 
     
     
+<p>say something about the needed data.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#install.packages("googlesheets4)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org" class="external-link">googlesheets4</a></span><span class="op">)</span></span>
+<span><span class="fu">googlesheets4</span><span class="fu">::</span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_deauth.html" class="external-link">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">frog_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/range_read.html" class="external-link">read_sheet</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1TtWHe1qF-mH6Wl4omrKv0jAS-RjctOEkZ--7jnfeuUs/edit?usp=sharing"</span><span class="op">)</span></span></code></pre></div>
 <p>This R package allows for analysis and visualization of presence
 absence behavioral data. Specifically, it is structed to analyze how
 many times behaviors occurred in different experimental groups.</p>
+<p>Early on on the tutorial, its customary to say something about how to
+install the needed R packages Also, add the dev tools function so people
+know how to install your package from github</p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

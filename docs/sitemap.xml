@@ -21,4 +21,10 @@
   <url>
     <loc>/reference/index.html</loc>
   </url>
+  <url>
+    <loc>/reference/non_numeric.html</loc>
+  </url>
+  <url>
+    <loc>/reference/separate_cols.html</loc>
+  </url>
 </urlset>
