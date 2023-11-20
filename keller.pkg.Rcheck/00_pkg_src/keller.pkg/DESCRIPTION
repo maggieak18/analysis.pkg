@@ -11,13 +11,13 @@ Authors@R: c(
 Description: A package to analyze and process presence absence type behavioral data. Specifically, ethogram based behavioral data of Xenopus laevis, whose sensory system inputs have been manipulated.
 License: MIT + file LICENSE
 Depends: R (>= 2.10)
-Imports: tidyverse, broom
-RoxygenNote: 7.1.1
+Imports: tidyverse, broom, plotrix
+RoxygenNote: 7.2.3
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 NeedsCompilation: no
-Packaged: 2023-11-09 19:31:28 UTC; r2159920
+Packaged: 2023-11-20 01:18:59 UTC; r2159920
 Author: Maggie Keller [cre, aut]
 Maintainer: Maggie Keller <magdalene.keller@selu.edu>

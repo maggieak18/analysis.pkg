@@ -13,12 +13,10 @@
 
 
 separate_cols <- function(data, column, newname1, newname2){
+  if(is.data.frame(data) == TRUE){
   final <- separate_wider_delim(data = data, cols = column, delim = " ", names = c(newname1, newname2))
     return(final)
+  }else{
+    print("Data must be a data frame")
+  }
 }
-
-
-#example
-#separate_cols(data = frog_data, column = "experimental_group", newname1 = "visual", newname2 = "lateral_line")
-
-

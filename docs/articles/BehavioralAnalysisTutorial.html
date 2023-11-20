@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Maggie
 Keller</h4>
             
-            <h4 data-toc-skip class="date">2023-11-14</h4>
+            <h4 data-toc-skip class="date">2023-11-19</h4>
       
       
       <div class="hidden name"><code>BehavioralAnalysisTutorial.Rmd</code></div>
@@ -81,23 +81,156 @@ Keller</h4>
 
     
     
-<p>say something about the needed data.</p>
+<div class="section level2">
+<h2 id="downloading-the-package">Downloading the package<a class="anchor" aria-label="anchor" href="#downloading-the-package"></a>
+</h2>
+<p>To download this package use the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"maggieak18/analysis.pkg"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="downloading-the-data">Downloading the data<a class="anchor" aria-label="anchor" href="#downloading-the-data"></a>
+</h2>
+<p>This R package is designed to process and analyze both behavioral
+frequency data and kinematic data sets. The two data sets used in this
+tutorial are below. The first one is presence/absence data for predatory
+behaviors of the African Clawed Frog, Xenopus laevis.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#install.packages("googlesheets4)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org" class="external-link">googlesheets4</a></span><span class="op">)</span></span>
 <span><span class="fu">googlesheets4</span><span class="fu">::</span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_deauth.html" class="external-link">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">frog_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/range_read.html" class="external-link">read_sheet</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1TtWHe1qF-mH6Wl4omrKv0jAS-RjctOEkZ--7jnfeuUs/edit?usp=sharing"</span><span class="op">)</span></span></code></pre></div>
-<p>This R package allows for analysis and visualization of presence
-absence behavioral data. Specifically, it is structed to analyze how
-many times behaviors occurred in different experimental groups.</p>
-<p>Early on on the tutorial, its customary to say something about how to
-install the needed R packages Also, add the dev tools function so people
-know how to install your package from github</p>
+<p>The second data set below is kinematic data on the angle and velocity
+of striking behaviors of Xenopus. These two data sets are part of my
+undergraduate thesis that investigated how lateral line sensory input is
+used during prey acquisition, hence why the experimental groups involve
+sensory manipulations.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#install.packages("googlesheets4)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org" class="external-link">googlesheets4</a></span><span class="op">)</span></span>
+<span><span class="fu">googlesheets4</span><span class="fu">::</span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_deauth.html" class="external-link">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">kin_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/range_read.html" class="external-link">read_sheet</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1Vl8RNAL5QAmvlUY6zJOA6bLtC_9gv8i2bJKqWUCgjcQ/edit?usp=sharing"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
+</h2>
+<p>These are the packages needed to utilize all of the functions within
+this r package.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"broom"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/" class="external-link">broom</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"plotrix"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dmurdoch/plotrix" class="external-link">plotrix</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h2>
+<p>There are six functions within this package. Below are explanations
+and examples for each of the functions.</p>
+<div class="section level3">
+<h3 id="nonnumeric">NonNumeric<a class="anchor" aria-label="anchor" href="#nonnumeric"></a>
+</h3>
+<p>The nonnumeric function is a way to clean data. This function should
+be utilized before running analyses. It serves as a way to check if
+there are any typos in the data sheet, or if data has been entered in
+the wrong columns.</p>
+<div class="section level4">
+<h4 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h4>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#This example demonstrates the function output when the column contents are entirely numeric.</span></span>
+<span><span class="va">frog_number</span> <span class="op">&lt;-</span> <span class="va">frog_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="op">+</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">frog_number</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/non_numeric.html">non_numeric</a></span><span class="op">(</span><span class="va">frog_number</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#This example demonstrates the function output when there is nonnumeric data within the column.</span></span>
+<span><span class="va">ex_group</span> <span class="op">&lt;-</span> <span class="va">frog_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="op">+</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">experimental_group</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/non_numeric.html">non_numeric</a></span><span class="op">(</span><span class="va">ex_group</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="separate-columns">Separate Columns<a class="anchor" aria-label="anchor" href="#separate-columns"></a>
+</h3>
+<p>This function gives the user the ability to separate columns. This is
+particularly useful for this data set because the experimental
+treatments exist in one column originally. Therefore, this is useful if
+analysis of each sensory treatment is desired.</p>
+<div class="section level4">
+<h4 id="example-1">Example<a class="anchor" aria-label="anchor" href="#example-1"></a>
+</h4>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/separate_cols.html">separate_cols</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">frog_data</span>, column <span class="op">=</span> <span class="st">"experimental_group"</span>, newname1 <span class="op">=</span> <span class="st">"visual"</span>, newname2 <span class="op">=</span> <span class="st">"lateral_line"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="standard-error">Standard Error<a class="anchor" aria-label="anchor" href="#standard-error"></a>
+</h3>
+<p>This function will calculate the standard error.</p>
+<div class="section level4">
+<h4 id="example-2">Example<a class="anchor" aria-label="anchor" href="#example-2"></a>
+</h4>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/stnd_e.html">stnd_e</a></span><span class="op">(</span><span class="va">kin_data</span>, <span class="st">"actual_angle"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="linear-model">Linear Model<a class="anchor" aria-label="anchor" href="#linear-model"></a>
+</h3>
+<p>This function gives the user the ability to run a linear model for
+the data set. This is a good way to evaluate relationships between
+variables.</p>
+<div class="section level4">
+<h4 id="example-3">Example<a class="anchor" aria-label="anchor" href="#example-3"></a>
+</h4>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/linearmod.html">linearmod</a></span><span class="op">(</span><span class="va">kin_data</span>, <span class="st">"speed_cm_sec"</span>, <span class="st">"actual_angle"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="scatter-plot">Scatter Plot<a class="anchor" aria-label="anchor" href="#scatter-plot"></a>
+</h3>
+<p>This function creates a scatter plot to visualize data
+relationships.</p>
+<div class="section level4">
+<h4 id="example-4">Example<a class="anchor" aria-label="anchor" href="#example-4"></a>
+</h4>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatter.html">scatter</a></span><span class="op">(</span><span class="va">kin_data</span>, <span class="va">actual_angle</span>, <span class="va">speed_cm_sec</span>, color <span class="op">=</span> <span class="va">ablation_condition</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="histogram">Histogram<a class="anchor" aria-label="anchor" href="#histogram"></a>
+</h3>
+<p>This function allows for visualization of behavioral frequencies. In
+order for the function to work, the data first needs to be transformed
+in a way that is compatible with ggplot. Run the code below to create
+the data frame necessary for this function:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">frog_count_data</span> <span class="op">&lt;-</span> <span class="va">frog_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">experimental_group</span>, <span class="va">behavior</span>, <span class="va">strike_at_fish</span>, <span class="va">strike_at_nothing</span>, <span class="va">sweep</span>, ... <span class="op">=</span> <span class="va">move_towards_prey</span>, <span class="va">move_away_from_prey</span>, <span class="va">frenzy</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">experimental_group</span>, <span class="va">behavior</span>, <span class="va">n</span><span class="op">)</span></span></code></pre></div>
+<p>This data frame is a summation of behavioral frequencies. Now the
+function may be utilized with this data format.</p>
+<div class="section level4">
+<h4 id="example-5">Example<a class="anchor" aria-label="anchor" href="#example-5"></a>
+</h4>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/behavior_hist.html">behavior_hist</a></span><span class="op">(</span>data<span class="op">=</span> <span class="va">frog_count_data</span>, x_axis <span class="op">=</span> <span class="va">behavior</span>, y_axis <span class="op">=</span> <span class="va">n</span>, color <span class="op">=</span> <span class="va">experimental_group</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

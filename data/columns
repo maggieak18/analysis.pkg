@@ -1,5 +1,6 @@
 column descriptions
 
+For Frog Data
 "experimental_group" the treatment type administered
 "frog_number" the number an individual frog was assigned
 "strike_at_fish" attack at a prey object
@@ -8,3 +9,19 @@ column descriptions
 "move_towards_prey" swimming closer to prey
 "move_away_from_prey" swimming farther from prey
 "frenzy" random chaotic movement
+
+For Kinematic Data
+"light_condition" whether the frog was in the light or dark
+"ablation_condition" wether the frog was ablated or nonablated
+"calibration_image" the calibration image number
+"frog_number" the number assigned to the individual
+"frog_size" the size of the frog in cm
+"starting_frame_num" the number of the starting frame of the strike
+"end_frame_num" the number of the ending frame of the strike
+"distance_cm" the distance from the tip of the frogs mouth to the strike apex
+"frame_rate" the frame rate the camera recorded in
+"total_frame_num" the total number of frames the strike occurred over
+"seconds" the time in seconds the strike occurred over
+"speed_cm_sec" the speed of the strike in cm per second
+"angle" the angle of attack calculated from imageJ (inverted)
+"actual_angle" the actual angle of attack

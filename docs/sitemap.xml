@@ -19,12 +19,27 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/behavior_hist.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/linearmod.html</loc>
   </url>
   <url>
     <loc>/reference/non_numeric.html</loc>
   </url>
   <url>
+    <loc>/reference/scatter.html</loc>
+  </url>
+  <url>
+    <loc>/reference/se_mean.html</loc>
+  </url>
+  <url>
     <loc>/reference/separate_cols.html</loc>
+  </url>
+  <url>
+    <loc>/reference/stnd_e.html</loc>
   </url>
 </urlset>

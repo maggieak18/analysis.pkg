@@ -9,4 +9,126 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This R package allows for analysis and visualization of presence absence behavioral data. Specifically, it is structed to analyze how many times behaviors occurred in different experimental groups.
+# Downloading the package
+
+To download this package use the following command:
+```{r, eval=FALSE}
+devtools::install_github("maggieak18/analysis.pkg")
+```
+
+# Downloading the data
+
+This R package is designed to process and analyze both behavioral frequency data and kinematic data sets. The two data sets used in this tutorial are below. The first one is presence/absence data for predatory behaviors of the African Clawed Frog, Xenopus laevis.
+
+```{r, eval=FALSE}
+#install.packages("googlesheets4)
+library(googlesheets4)
+googlesheets4::gs4_deauth()
+frog_data <- read_sheet("https://docs.google.com/spreadsheets/d/1TtWHe1qF-mH6Wl4omrKv0jAS-RjctOEkZ--7jnfeuUs/edit?usp=sharing")
+```
+
+The second data set below is kinematic data on the angle and velocity of striking behaviors of Xenopus. These two data sets are part of my undergraduate thesis that investigated how lateral line sensory input is used during prey acquisition, hence why the experimental groups involve sensory manipulations.
+
+```{r, eval=FALSE}
+#install.packages("googlesheets4)
+library(googlesheets4)
+googlesheets4::gs4_deauth()
+kin_data <- read_sheet("https://docs.google.com/spreadsheets/d/1Vl8RNAL5QAmvlUY6zJOA6bLtC_9gv8i2bJKqWUCgjcQ/edit?usp=sharing")
+```
+
+# Dependencies
+
+These are the packages needed to utilize all of the functions within this r package.
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("broom")
+library(broom)
+install.packages("plotrix")
+library(plotrix)
+```
+
+# Functions
+
+There are six functions within this package. Below are explanations and examples for each of the functions.
+
+## NonNumeric
+
+The nonnumeric function is a way to clean data. This function should be utilized before running analyses. It serves as a way to check if there are any typos in the data sheet, or if data has been entered in the wrong columns.
+
+### Example
+
+```{r, eval=FALSE}
+#This example demonstrates the function output when the column contents are entirely numeric.
+frog_number <- frog_data %>% 
+  + select(frog_number)
+
+non_numeric(frog_number)
+```
+
+```{r, eval=FALSE}
+#This example demonstrates the function output when there is nonnumeric data within the column.
+ex_group <- frog_data %>% 
+  + select(experimental_group)
+
+non_numeric(ex_group)
+```
+
+## Separate Columns
+
+This function gives the user the ability to separate columns. This is particularly useful for this data set because the experimental treatments exist in one column originally. Therefore, this is useful if analysis of each sensory treatment is desired.
+
+### Example
+
+```{r, eval=FALSE}
+separate_cols(data = frog_data, column = "experimental_group", newname1 = "visual", newname2 = "lateral_line")
+```
+
+## Standard Error
+
+This function will calculate the standard error.
+
+### Example
+
+```{r, eval=FALSE}
+stnd_e(kin_data, "actual_angle")
+```
+
+## Linear Model
+
+This function gives the user the ability to run a linear model for the data set. This is a good way to evaluate relationships between variables.
+
+### Example
+
+```{r, eval=FALSE}
+linearmod(kin_data, "speed_cm_sec", "actual_angle")
+```
+
+## Scatter Plot
+
+This function creates a scatter plot to visualize data relationships.
+
+### Example
+
+```{r, eval=FALSE}
+scatter(kin_data, actual_angle, speed_cm_sec, color = ablation_condition)
+```
+
+## Histogram
+
+This function allows for visualization of behavioral frequencies. In order for the function to work, the data first needs to be transformed in a way that is compatible with ggplot. Run the code below to create the data frame necessary for this function:
+
+```{r, eval=FALSE}
+frog_count_data <- frog_data %>% 
+  count(experimental_group, behavior, strike_at_fish, strike_at_nothing, sweep, ... = move_towards_prey, move_away_from_prey, frenzy) %>% 
+  select(experimental_group, behavior, n)
+```
+
+This data frame is a summation of behavioral frequencies. Now the function may be utilized with this data format.
+
+### Example
+
+```{r, eval=FALSE}
+behavior_hist(data= frog_count_data, x_axis = behavior, y_axis = n, color = experimental_group, position = "dodge")
+```

@@ -15,18 +15,3 @@ non_numeric <- function(column){
     print("Non-numeric data in column")
   }
 }
-
-
-#examples
-#
-#frog_number <- frog_data %>% 
-#  + select(frog_number)
-#
-#non_numeric(frog_number)
-#
-#
-#ex_group <- frog_data %>% 
-#  + select(experimental_group)
-#
-#non_numeric(ex_group)
-#

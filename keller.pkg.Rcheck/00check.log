@@ -41,21 +41,51 @@ Subdirectory ‘data’ contains no data sets.
 * checking loading without being on the library search path ... OK
 * checking dependencies in R code ... NOTE
 Namespaces in Imports field not imported from:
-  ‘broom’ ‘tidyverse’
+  ‘broom’ ‘plotrix’ ‘tidyverse’
   All declared Imports should be used.
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
+behavior_hist: no visible global function definition for ‘%>%’
+behavior_hist: no visible global function definition for ‘ggplot’
+behavior_hist: no visible global function definition for ‘aes’
+behavior_hist: no visible global function definition for ‘geom_col’
+linearmod: no visible global function definition for ‘%>%’
+linearmod: no visible global function definition for ‘select’
+linearmod: no visible global function definition for ‘quo_name’
+linearmod: no visible global function definition for ‘starts_with’
+linearmod: no visible global function definition for ‘lm’
+linearmod: no visible binding for global variable ‘.’
 non_numeric: no visible global function definition for ‘select_if’
+scatter: no visible global function definition for ‘%>%’
+scatter: no visible global function definition for ‘ggplot’
+scatter: no visible global function definition for ‘aes’
+scatter: no visible global function definition for ‘geom_point’
 separate_cols: no visible global function definition for
   ‘separate_wider_delim’
+stnd_e: no visible global function definition for ‘%>%’
+stnd_e: no visible global function definition for ‘select’
+stnd_e: no visible global function definition for ‘all_of’
+stnd_e: no visible global function definition for ‘std.error’
 Undefined global functions or variables:
-  select_if separate_wider_delim
+  %>% . aes all_of geom_col geom_point ggplot lm quo_name select
+  select_if separate_wider_delim starts_with std.error
+Consider adding
+  importFrom("stats", "lm")
+to your NAMESPACE file.
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
 * checking contents of ‘data’ directory ... WARNING
 Files not of a type allowed in a ‘data’ directory:
-  ‘SICB_Analysis.xlsx’ ‘columns’
+  ‘Kinematic_Raw_Data_R.xlsx’ ‘SICB_Analysis_R.xlsx’ ‘columns’
 Please use e.g. ‘inst/extdata’ for non-R data files
 
 * checking data for non-ASCII characters ... OK
